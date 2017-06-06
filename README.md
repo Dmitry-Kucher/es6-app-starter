@@ -28,9 +28,11 @@ package.json - required modules description
 Gulpfile includes following tasks:
 * lint
 * lint:fix
+* clean
 * compile
 * webserver
 * watch
+* build
 * default
 
 ## lint
@@ -44,6 +46,12 @@ Output result will show how many [SLOC](https://en.wikipedia.org/wiki/Source_lin
 gulp lint:fix
 ```
 Same as previous, but also trying to fix errors if it's possible
+
+## clean
+```
+gulp clean
+```
+Cleanup /app/dist path
 
 ## compile
 ```
@@ -63,11 +71,30 @@ gulp watch
 ```
 Starting watcher for tracking file changes in /src directory
 
+## build
+```
+gulp build
+```
+Build task, depends on additional parameters called browser/cli building strategy
+
 ## default
 ```
 gulp default
 ```
 Starting webserver after linter, compile jobs and keeping watcher for source files. If any changes occured inside /src directory than all process will start again
+
+# Additional parameters
+## --build
+```
+gulp command [--build]
+```
+Additional parameter to show in which case build strategy executes. Supports browser/cli values.
+
+## --production
+```
+gulp command [--production]
+```
+Parameter to execute, when lib is preparing for production mode. Includes uglify functionality
 
 # Conclusion
 Fill free to use any part of code for yor own project and good luck
